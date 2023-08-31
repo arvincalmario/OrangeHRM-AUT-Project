@@ -23,5 +23,8 @@ public class TestConfig {
 	public static String ssnNumber = "123455";
 	public static String sinNumber = "123455";
 	public static String nationality = "c";
+	
+	//SEARCH EMPLOYEE
+	public static String sEmpId = "0024";
 
 }

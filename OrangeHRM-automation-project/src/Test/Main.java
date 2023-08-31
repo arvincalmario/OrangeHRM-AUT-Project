@@ -30,6 +30,10 @@ public class Main {
 //	    Employee addEmployee = new Employee();
 //	    addEmployee.performAddEmployeeTestChrome(chromedriver);
 	    
+	    //TEST SEARCH EMPLOYEE USING SEARCH LIST	    
+	    Employee searchEmployeeSearch = new Employee();
+	    searchEmployeeSearch.performSearchEmployeeUsingSearchinEmployeeListTestChrome(chromedriver);
+	    
 	    //TEST SEARCH EMPLOYEE
 	    Employee searchEmployee = new Employee();
 	    searchEmployee.performSearchEmployeeTestChrome(chromedriver);

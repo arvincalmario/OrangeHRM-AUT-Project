@@ -55,7 +55,7 @@ public class Employee {
         jsExecutor.executeScript("arguments[0].click();", elementToClick);
         
 
-        System.out.println("searched employee complete");
+        System.out.println("search employee complete");
 	}
 	
 	public void performUpdateEmployeeDetails (WebDriver driver) throws InterruptedException {
@@ -81,16 +81,38 @@ public class Employee {
 		.sendKeys(Keys.chord(Keys.CONTROL,"a"),TestConfig.sinNumber);
 		
 		driver.findElement(By.cssSelector("body > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > form:nth-child(3) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"))
+		.click();
+		driver.findElement(By.cssSelector("body > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > form:nth-child(3) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"))
 		.sendKeys(TestConfig.nationality);
+		
 		
 		System.out.println("update employee complete");
 	}
+	
+	 public void performSearchEmployeeUsingSearchinEmployeeList(WebDriver driver) throws InterruptedException {
+	    	
+		 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		 	wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.oxd-main-menu-item[href='/web/index.php/pim/viewPimModule']")));
+			driver.findElement(By.cssSelector("a.oxd-main-menu-item[href='/web/index.php/pim/viewPimModule']")).click();
+			
+			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[class='oxd-input-group oxd-input-field-bottom-space'] div input[class='oxd-input oxd-input--active']")));
+			driver.findElement(By.cssSelector("div[class='oxd-input-group oxd-input-field-bottom-space'] div input[class='oxd-input oxd-input--active']")).sendKeys(TestConfig.sEmpId);;
+			driver.findElement(By.cssSelector("button[type='submit']")).click();		
+			
+			System.out.println("search employee UsingSearch complete");
+	    }
 	
 //    public void performAddEmployeeTestChrome(WebDriver chromeDriver) throws InterruptedException {
 //    	
 //    	performAddEmployee(chromeDriver);
 //    	Thread.sleep(5000);
 //    }
+	 
+	 public void performSearchEmployeeUsingSearchinEmployeeListTestChrome(WebDriver chromeDriver) throws InterruptedException {
+	    	
+		 performSearchEmployeeUsingSearchinEmployeeList(chromeDriver);
+	    Thread.sleep(5000);
+	 }
 
     public void performSearchEmployeeTestChrome(WebDriver chromeDriver) throws InterruptedException {
     	
